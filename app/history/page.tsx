@@ -16,7 +16,7 @@ export default function HistoryPage() {
         </div>
 
         {/* Canva Page 1 */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12 border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12 border border-gray-100 relative">
           <div className="relative w-full" style={{ paddingTop: '130%' }}>
             <iframe
               src="https://www.canva.com/design/DAG4gAREQtQ/IuybfbSTDc70YNiAd5XqnQ/view?embed"
@@ -32,10 +32,29 @@ export default function HistoryPage() {
               }}
             ></iframe>
           </div>
+
+          {/* Hidden text for accessibility / text-to-speech */}
+          <div className="sr-only">
+          Formerly a rundown area in downtown Atlanta, the
+          Atlanta Committee for Olympic Games
+          planned for development beginning in 1993 in
+          preparation to host the 1996 Olympics. Centennial Olympic Park
+          opened in July 1996 for the
+          Olympic Games hosting many
+          international gatherings and
+          events. In July 27, 2026 a bomb
+          exploded in the park killing two
+          and injuring over 100 others.
+          The park is temporarily closed
+          after this tragedy. Following the bombing, the park underwent
+          major reconstruction and redesigned for
+          public use. In 1998, the park reopens with
+          more green space and the Fountain of Rings.
+          </div>
         </div>
 
         {/* Canva Page 2 */}
-        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12 border border-gray-100">
+        <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12 border border-gray-100 relative">
           <div className="relative w-full" style={{ paddingTop: '130%' }}>
             <iframe
               src="https://www.canva.com/design/DAG4gH6uFXs/0weifFYcBubcsG2u2tqOHA/view?embed"
@@ -50,6 +69,30 @@ export default function HistoryPage() {
                 transformOrigin: 'center',
               }}
             ></iframe>
+          </div>
+
+          {/* Hidden text for accessibility / text-to-speech */}
+          <div className="sr-only">
+          Centennial Park serves as an entertainment
+          district, hosting many concerts and festivals
+          for the city. The surrounding attractions
+          including The World of Coca-Cola and the
+          Georgia Aquarium bring in many tourists.
+          Centennial Park is dubbed “the crown jewel
+          of Atlanta’s downtown”. In 2010 the park was expanded
+          and modernized including better
+          landscaping, walking paths, and
+          lights. The Atlanta 1996 Olympic
+          Legacy Plaza was created to honor
+          the games. Centennial Olympic
+          Park continues to serve as the hub
+          of gatherings in downtown
+          Atlanta and as a symbol of the
+          city’s renewal, resilience, and
+          community after rebuilding
+          following the bombing and its
+          many gatherings hosted in the
+          park.
           </div>
         </div>
 

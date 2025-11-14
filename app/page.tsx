@@ -38,7 +38,7 @@ export default function HomePage() {
 
         <div className="text-center mt-10">
           <Link
-            href="/survey"
+            href="/history"
             className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-10 rounded-lg shadow-lg transition"
           >
             Read Park History →

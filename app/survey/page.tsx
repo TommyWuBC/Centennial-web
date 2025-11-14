@@ -8,7 +8,7 @@ export default function Home() {
   // Read env at render time (no useEffect / no state)
   const formId = process.env.NEXT_PUBLIC_GOOGLE_FORM_ID ?? '';
 
-  const handleContinue = () => router.push('/history');
+  const handleContinue = () => router.push('/ideas');
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">

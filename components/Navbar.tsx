@@ -13,31 +13,48 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           <div className="flex space-x-8">
-            <Link 
-              href="/" 
+            {/* Home */}
+            <Link
+              href="/"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                isActive('/') 
-                  ? 'text-blue-600 font-semibold' 
+                isActive('/')
+                  ? 'text-blue-600 font-semibold'
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >
               Home
             </Link>
-            <Link 
-              href="/history" 
+
+            {/* About the Park */}
+            <Link
+              href="/history"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                isActive('/history') 
-                  ? 'text-blue-600 font-semibold' 
+                isActive('/history')
+                  ? 'text-blue-600 font-semibold'
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >
               About the Park
             </Link>
-            <Link 
-              href="/ideas" 
+
+            {/* NEW Survey Page */}
+            <Link
+              href="/survey"
               className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
-                isActive('/ideas') 
-                  ? 'text-blue-600 font-semibold' 
+                isActive('/survey')
+                  ? 'text-blue-600 font-semibold'
+                  : 'text-gray-700 hover:text-blue-600'
+              }`}
+            >
+              Survey
+            </Link>
+
+            {/* Ideas */}
+            <Link
+              href="/ideas"
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                isActive('/ideas')
+                  ? 'text-blue-600 font-semibold'
                   : 'text-gray-700 hover:text-blue-600'
               }`}
             >
@@ -49,4 +66,3 @@ export default function Navbar() {
     </nav>
   );
 }
-

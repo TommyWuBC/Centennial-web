@@ -1,11 +1,15 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Merriweather } from 'next/font/google'
 import './globals.css'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import TextToSpeechButton from '@/components/TextToSpeechButton'
 
-const inter = Inter({ subsets: ['latin'] })
+// Load serif font (Merriweather)
+const merriw = Merriweather({
+  subsets: ['latin'],
+  weight: ['300', '400', '700'], // Normal + bold weights
+})
 
 export const metadata: Metadata = {
   title: 'Centennial Olympic Park Community Feedback',
@@ -19,7 +23,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-h-screen flex flex-col`}>
+      <body className={`${merriw.className} min-h-screen flex flex-col`}>
         <Navbar />
         <main className="flex-grow">{children}</main>
         <Footer />

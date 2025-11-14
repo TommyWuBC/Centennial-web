@@ -1,0 +1,60 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
+export default function Home() {
+  const router = useRouter();
+
+  // Read env at render time (no useEffect / no state)
+  const formId = process.env.NEXT_PUBLIC_GOOGLE_FORM_ID ?? '';
+
+  const handleContinue = () => router.push('/history');
+
+  return (
+    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        <div className="text-center mb-8">
+          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+            Centennial Olympic Park Community Feedback
+          </h1>
+          <p className="text-lg text-gray-600">
+            Share your experiences and help us improve the park
+          </p>
+        </div>
+
+        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
+          {formId ? (
+            <iframe
+              src={`https://docs.google.com/forms/d/e/${formId}/viewform?embedded=true`}
+              width="100%"
+              height="900"
+              frameBorder="0"
+              className="w-full"
+              title="Centennial Olympic Park Survey"
+            >
+              Loading…
+            </iframe>
+          ) : (
+            <div className="text-center py-12">
+              <p className="text-gray-600 mb-4">
+                Please configure your Google Form ID in the environment variables.
+              </p>
+              <p className="text-sm text-gray-500">
+                Add NEXT_PUBLIC_GOOGLE_FORM_ID to your .env.local file
+              </p>
+            </div>
+          )}
+        </div>
+
+        <div className="text-center">
+          <button
+            onClick={handleContinue}
+            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors shadow-md"
+          >
+            See and share ideas →
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}

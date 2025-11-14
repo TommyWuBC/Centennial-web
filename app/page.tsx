@@ -1,58 +1,48 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
+import Image from 'next/image';
+import Link from 'next/link';
 
-export default function Home() {
-  const router = useRouter();
-
-  // Read env at render time (no useEffect / no state)
-  const formId = process.env.NEXT_PUBLIC_GOOGLE_FORM_ID ?? '';
-
-  const handleContinue = () => router.push('/history');
-
+export default function HomePage() {
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="text-center mb-8">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
-            Centennial Olympic Park Community Feedback
-          </h1>
-          <p className="text-lg text-gray-600">
-            Share your experiences and help us improve the park
-          </p>
+    <div className="min-h-screen bg-white">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        
+        <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center">
+          A Better Centennial Olympic Park
+        </h1>
+
+        <div className="w-full rounded-2xl overflow-hidden shadow-lg mb-10">
+          <Image
+            src="/images/atlanta-park.jpg"   // <-- You'll add this file, see Step 4
+            alt="Centennial Olympic Park"
+            width={1400}
+            height={900}
+            className="w-full h-auto"
+          />
         </div>
 
-        <div className="bg-white rounded-lg shadow-lg p-6 mb-6">
-          {formId ? (
-            <iframe
-              src={`https://docs.google.com/forms/d/e/${formId}/viewform?embedded=true`}
-              width="100%"
-              height="900"
-              frameBorder="0"
-              className="w-full"
-              title="Centennial Olympic Park Survey"
-            >
-              Loading…
-            </iframe>
-          ) : (
-            <div className="text-center py-12">
-              <p className="text-gray-600 mb-4">
-                Please configure your Google Form ID in the environment variables.
-              </p>
-              <p className="text-sm text-gray-500">
-                Add NEXT_PUBLIC_GOOGLE_FORM_ID to your .env.local file
-              </p>
-            </div>
-          )}
-        </div>
+        <p className="text-xl text-gray-800 leading-relaxed mb-6">
+          Centennial Olympic Park is one of Atlanta’s most iconic public spaces, 
+          but it also faces challenges that impact how visitors experience it. 
+          Our goal is to highlight existing issues and gather community feedback 
+          in hopes of encouraging the Georgia World Congress Center Authority (GWCCA) 
+          to implement meaningful improvements.
+        </p>
 
-        <div className="text-center">
-          <button
-            onClick={handleContinue}
-            className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors shadow-md"
+        <p className="text-lg text-gray-700 leading-relaxed mb-8">
+          Through this project, you can explore the park’s history, share your 
+          personal experiences, and read insights submitted by others. Your voice 
+          plays a vital role in helping shape a better future for the park.
+        </p>
+
+        <div className="text-center mt-10">
+          <Link
+            href="/survey"
+            className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-10 rounded-lg shadow-lg transition"
           >
-            Continue to Park History →
-          </button>
+            Read Park History →
+          </Link>
         </div>
       </div>
     </div>

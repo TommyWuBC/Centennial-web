@@ -98,10 +98,10 @@ export default function HistoryPage() {
 
         <div className="text-center mt-12">
           <Link
-            href="/ideas"
+            href="/survey"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-lg transition-colors shadow-lg text-lg"
           >
-            See and Share Ideas →
+            Begin a short survey →
           </Link>
         </div>
       </div>

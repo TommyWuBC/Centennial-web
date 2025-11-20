@@ -5,49 +5,65 @@ import Link from 'next/link';
 
 export default function HomePage() {
   return (
-    <div className="min-h-screen bg-white">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        
-        <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center">
-          A Better Centennial Olympic Park
-        </h1>
-        <h2 className="text-xl font-bold text-gray-800 leading-relaxed mb-6 mt-6 text-center">
-        THANK YOU FOR SCANNING THE QR CODE!
-        </h2>
-        <p className="text-xl text-gray-800 leading-relaxed mb-6 mt-6">
-          We are a local student organization with the goal to highlight existing issues of the park and why they need to be addressed. 
-          We are looking to gather community feedback and suggestions in hopes of encouraging the Georgia World Congress Center Authority (GWCCA) 
-          to implement meaningful improvements to Centennial Olympic park.
-        </p>
+    <div className="relative min-h-screen">
 
-        <div className="w-full rounded-2xl overflow-hidden shadow-lg mb-2">
-          <Image
-            src="/images/atlanta-park.jpg"
-            alt="Centennial Olympic Park"
-            width={1400}
-            height={900}
-            className="w-full h-auto"
-          />
-        </div>
+      {/* ---------- FAINT BACKGROUND IMAGE ---------- */}
+      <div
+        className="absolute inset-0 bg-cover bg-center opacity-60"
+        style={{
+          backgroundImage: "url('/images/bricks.png')",
+        }}
+      ></div>
 
-        {/* Image credit */}
-        <p className="text-xs text-gray-500 mt-1 text-center">
-          Image from atlantaparent.com
-        </p>
+      {/* ---------- WHITE CONTENT CARD ---------- */}
+      <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+        <div className="bg-white/90 backdrop-blur-sm shadow-xl rounded-2xl p-10">
 
-        <p className="text-lg text-gray-700 leading-relaxed mb-8">
-        Navigate through the pages to learn about the park, share your personal experiences, and read insights submitted by others. Your voice 
-        plays a vital role in helping shape a better future for the park.
-        Enjoy your visit!
-        </p>
+          <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center">
+            A Better Centennial Olympic Park
+          </h1>
 
-        <div className="text-center mt-10">
-          <Link
-            href="/history"
-            className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-10 rounded-lg shadow-lg transition"
-          >
-            Read about the Park →
-          </Link>
+          <h2 className="text-xl font-bold text-gray-800 leading-relaxed mb-6 mt-6 text-center">
+            THANK YOU FOR SCANNING THE QR CODE!
+          </h2>
+
+          <p className="text-xl text-gray-800 leading-relaxed mb-6 mt-6">
+            We are a local student organization with the goal to highlight existing issues of the park 
+            and why they need to be addressed. We are looking to gather community feedback and 
+            suggestions in hopes of encouraging the Georgia World Congress Center Authority (GWCCA) 
+            to implement meaningful improvements to Centennial Olympic Park.
+          </p>
+
+          {/* Main Image */}
+          <div className="w-full rounded-2xl overflow-hidden shadow-lg mb-2">
+            <Image
+              src="/images/atlanta-park.jpg"
+              alt="Centennial Olympic Park"
+              width={1400}
+              height={900}
+              className="w-full h-auto"
+            />
+          </div>
+
+          <p className="text-xs text-gray-500 mt-1 text-center">
+            Image from atlantaparent.com
+          </p>
+
+          <p className="text-lg text-gray-700 leading-relaxed mb-8 mt-4">
+            Navigate through the pages to learn about the park, share your personal experiences, 
+            and read insights submitted by others. Your voice plays a vital role in helping shape a 
+            better future for the park. Enjoy your visit!
+          </p>
+
+          <div className="text-center mt-10">
+            <Link
+              href="/history"
+              className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-10 rounded-lg shadow-lg transition"
+            >
+              Read about the Park →
+            </Link>
+          </div>
+
         </div>
       </div>
     </div>

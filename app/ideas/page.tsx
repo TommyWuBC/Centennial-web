@@ -1,7 +1,16 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { Idea, getIdeas, createIdea, upvoteIdea, deleteIdea, hasVoted, markAsVoted, generateVoterId } from '@/lib/utils';
+import {
+  Idea,
+  getIdeas,
+  createIdea,
+  upvoteIdea,
+  deleteIdea,
+  hasVoted,
+  markAsVoted,
+  generateVoterId,
+} from '@/lib/utils';
 import { auth } from '@/lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 import { isAdmin, logout } from '@/lib/auth';
@@ -17,9 +26,9 @@ export default function IdeasPage() {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [user, setUser] = useState<User | null>(null);
-  const [deleteModal, setDeleteModal] = useState<{ show: boolean; ideaId: string | null }>({
+  const [deleteModal, setDeleteModal] = useState({
     show: false,
-    ideaId: null,
+    ideaId: null as string | null,
   });
   const [showLogin, setShowLogin] = useState(false);
 
@@ -43,7 +52,7 @@ export default function IdeasPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (title.trim().length === 0 || content.trim().length === 0) {
       alert('Please fill in both title and content');
       return;
@@ -61,7 +70,7 @@ export default function IdeasPage() {
 
     setSubmitting(true);
     const ideaId = await createIdea(title.trim(), content.trim());
-    
+
     if (ideaId) {
       setTitle('');
       setContent('');
@@ -74,13 +83,11 @@ export default function IdeasPage() {
   };
 
   const handleUpvote = async (ideaId: string) => {
-    if (hasVoted(ideaId)) {
-      return; // Already voted
-    }
+    if (hasVoted(ideaId)) return;
 
     const voterId = generateVoterId();
     const success = await upvoteIdea(ideaId, voterId);
-    
+
     if (success) {
       markAsVoted(ideaId);
       await loadIdeas();
@@ -89,7 +96,7 @@ export default function IdeasPage() {
 
   const handleDelete = async () => {
     if (!deleteModal.ideaId) return;
-    
+
     const success = await deleteIdea(deleteModal.ideaId);
     if (success) {
       setDeleteModal({ show: false, ideaId: null });
@@ -112,12 +119,24 @@ export default function IdeasPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-purple-50 to-white">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+    <div className="relative min-h-screen">
+      {/* Background image */}
+      <div className="absolute inset-0 -z-10 opacity-60">
+        <img
+          src="/images/bricks.png"
+          className="w-full h-full object-cover"
+          alt="Background"
+        />
+      </div>
+
+      {/* Page content */}
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12 bg-white bg-opacity-95 rounded-xl shadow-xl mt-6 mb-6">
+
         <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-8">
           <h1 className="text-4xl font-bold text-gray-900 mb-4 sm:mb-0">
             Community Ideas
           </h1>
+
           <div className="flex gap-4 items-center">
             <div className="flex gap-2">
               <button
@@ -141,6 +160,7 @@ export default function IdeasPage() {
                 Top
               </button>
             </div>
+
             {!isAdmin(user) ? (
               <button
                 onClick={() => setShowLogin(true)}
@@ -161,10 +181,12 @@ export default function IdeasPage() {
             )}
           </div>
         </div>
+
         <p className="text-lg text-gray-600">
-            This is a platform where you can suggest improvements you'd like to see to the Georgia World Congress Center Authority.
-            You can also upvote ideas by clicking the upwards arrow next to the idea.
-          </p>
+          This is a platform where you can suggest improvements you'd like to see to the Georgia World Congress Center Authority.
+          You can also upvote ideas by clicking the upwards arrow next to the idea.
+        </p>
+
         <div className="mt-10 mb-6">
           <button
             onClick={() => setShowForm(!showForm)}
@@ -206,6 +228,7 @@ export default function IdeasPage() {
                 required
               />
             </div>
+
             <button
               type="submit"
               disabled={submitting}
@@ -227,10 +250,7 @@ export default function IdeasPage() {
         ) : (
           <div className="space-y-4">
             {ideas.map((idea) => (
-              <div
-                key={idea.id}
-                className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow"
-              >
+              <div key={idea.id} className="bg-white rounded-lg shadow-md p-6 hover:shadow-lg transition-shadow">
                 <div className="flex gap-4">
                   <div className="flex flex-col items-center">
                     <button
@@ -243,22 +263,20 @@ export default function IdeasPage() {
                       }`}
                       title={hasVoted(idea.id) ? 'Already voted' : 'Upvote'}
                     >
-                      <svg
-                        className="w-6 h-6"
-                        fill="currentColor"
-                        viewBox="0 0 20 20"
-                      >
+                      <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 20 20">
                         <path
                           fillRule="evenodd"
-                          d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 010 1.414z"
+                          d="M14.707 12.707a1 1 0 01-1.414 0L10 9.414l-3.293 3.293a1 1 0 01-1.414-1.414l4-4a1 1 0 011.414 0l4 4a1 1 0 01-1.414 0z"
                           clipRule="evenodd"
                         />
                       </svg>
                     </button>
+
                     <span className="text-sm font-semibold text-gray-700 mt-1">
                       {idea.votes}
                     </span>
                   </div>
+
                   <div className="flex-1">
                     <h3 className="text-xl font-semibold text-gray-900 mb-2">
                       {idea.title}
@@ -268,6 +286,7 @@ export default function IdeasPage() {
                     </p>
                     <div className="flex justify-between items-center text-sm text-gray-500">
                       <span>{formatDate(idea.createdAt)}</span>
+
                       {isAdmin(user) && (
                         <button
                           onClick={() => setDeleteModal({ show: true, ideaId: idea.id })}
@@ -303,4 +322,3 @@ export default function IdeasPage() {
     </div>
   );
 }
-

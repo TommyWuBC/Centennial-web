@@ -60,7 +60,7 @@ export default function HomePage() {
               href="/history"
               className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-10 rounded-lg shadow-lg transition"
             >
-              Read about the Park →
+              About the park →
             </Link>
           </div>
 

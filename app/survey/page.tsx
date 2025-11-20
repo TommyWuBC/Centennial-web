@@ -18,7 +18,7 @@ export default function Home() {
             Centennial Olympic Park Community Feedback
           </h1>
           <p className="text-lg text-gray-600">
-            Share your experiences and help us improve the park
+            To help us improve the park, please share your experiences through this short anonymous survey.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export default function Home() {
             onClick={handleContinue}
             className="bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-8 rounded-lg transition-colors shadow-md"
           >
-            See and share ideas →
+            See and share ideas for improving the park →
           </button>
         </div>
       </div>

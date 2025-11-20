@@ -161,8 +161,11 @@ export default function IdeasPage() {
             )}
           </div>
         </div>
-
-        <div className="mb-6">
+        <p className="text-lg text-gray-600">
+            This is a platform where you can suggest improvements you'd like to see to the Georgia World Congress Center Authority.
+            You can also upvote ideas by clicking the upwards arrow next to the idea.
+          </p>
+        <div className="mt-10 mb-6">
           <button
             onClick={() => setShowForm(!showForm)}
             className="w-full sm:w-auto bg-blue-600 hover:bg-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-colors shadow-md"

@@ -11,7 +11,7 @@ export default function HistoryPage() {
             About Centennial Olympic Park
           </h1>
           <p className="text-lg text-gray-600">
-            Discover the history and significance of Atlanta&apos;s iconic park
+            Discover the park's history and its importance to Atlanta
           </p>
         </div>
 
@@ -19,7 +19,7 @@ export default function HistoryPage() {
         <div className="bg-white rounded-2xl shadow-lg overflow-hidden mb-12 border border-gray-100 relative">
           <div className="relative w-full" style={{ paddingTop: '130%' }}>
             <iframe
-              src="https://www.canva.com/design/DAG4gAREQtQ/IuybfbSTDc70YNiAd5XqnQ/view?embed"
+              src="https://www.canva.com/design/DAG5Qu5g1tw/cy2QkDlzjoVpbpFCc0DQ8A/view?embed"
               loading="lazy"
               allowFullScreen
               className="absolute top-0 left-0 w-full h-full"
@@ -38,7 +38,14 @@ export default function HistoryPage() {
           Formerly a rundown area in downtown Atlanta, the
           Atlanta Committee for Olympic Games
           planned for development beginning in 1993 in
-          preparation to host the 1996 Olympics. Centennial Olympic Park
+          preparation to host the 1996 Olympics.
+          Development of housing for the incoming athletes
+          displaced many residents that lived in the houses
+          around the park. Statistics report that 22% of
+          residents in the area were not rehoused after the
+          displacement stirring up issues of gentrification due
+          to the Olympics and development of Centennial
+          Park. Centennial Olympic Park
           opened in July 1996 for the
           Olympic Games hosting many
           international gatherings and
@@ -98,10 +105,10 @@ export default function HistoryPage() {
 
         <div className="text-center mt-12">
           <Link
-            href="/survey"
+            href="/challenges"
             className="inline-block bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-12 rounded-lg transition-colors shadow-lg text-lg"
           >
-            Begin a short survey →
+            Learn about areas for improvements →
           </Link>
         </div>
       </div>

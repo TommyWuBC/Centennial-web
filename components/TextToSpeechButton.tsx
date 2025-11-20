@@ -5,7 +5,14 @@ export default function TextToSpeechButton() {
   const [speaking, setSpeaking] = useState(false);
 
   const handleSpeak = () => {
-    const text = document.body.innerText; // reads all visible text
+    const main = document.querySelector('main');
+    const text = main ? main.innerText : '';
+
+    if (!text || text.trim().length === 0) {
+      alert("Nothing to read on this page.");
+      return;
+    }
+
     const utterance = new SpeechSynthesisUtterance(text);
 
     utterance.onend = () => setSpeaking(false);

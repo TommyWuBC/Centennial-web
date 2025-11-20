@@ -11,10 +11,18 @@ export default function HomePage() {
         <h1 className="text-5xl font-bold text-gray-900 mb-8 text-center">
           A Better Centennial Olympic Park
         </h1>
+        <h2 className="text-xl font-bold text-gray-800 leading-relaxed mb-6 mt-6 text-center">
+        THANK YOU FOR SCANNING THE QR CODE!
+        </h2>
+        <p className="text-xl text-gray-800 leading-relaxed mb-6 mt-6">
+          We are a local student organization with the goal to highlight existing issues of the park and why they need to be addressed. 
+          We are looking to gather community feedback and suggestions in hopes of encouraging the Georgia World Congress Center Authority (GWCCA) 
+          to implement meaningful improvements to Centennial Olympic park.
+        </p>
 
-        <div className="w-full rounded-2xl overflow-hidden shadow-lg mb-10">
+        <div className="w-full rounded-2xl overflow-hidden shadow-lg mb-2">
           <Image
-            src="/images/atlanta-park.jpg"   // <-- You'll add this file, see Step 4
+            src="/images/atlanta-park.jpg"
             alt="Centennial Olympic Park"
             width={1400}
             height={900}
@@ -22,18 +30,15 @@ export default function HomePage() {
           />
         </div>
 
-        <p className="text-xl text-gray-800 leading-relaxed mb-6">
-          Centennial Olympic Park is one of Atlanta’s most iconic public spaces, 
-          but it also faces challenges that impact how visitors experience it. 
-          Our goal is to highlight existing issues and gather community feedback 
-          in hopes of encouraging the Georgia World Congress Center Authority (GWCCA) 
-          to implement meaningful improvements.
+        {/* Image credit */}
+        <p className="text-xs text-gray-500 mt-1 text-center">
+          Image from atlantaparent.com
         </p>
 
         <p className="text-lg text-gray-700 leading-relaxed mb-8">
-          Through this project, you can explore the park’s history, share your 
-          personal experiences, and read insights submitted by others. Your voice 
-          plays a vital role in helping shape a better future for the park.
+        Navigate through the pages to learn about the park, share your personal experiences, and read insights submitted by others. Your voice 
+        plays a vital role in helping shape a better future for the park.
+        Enjoy your visit!
         </p>
 
         <div className="text-center mt-10">
@@ -41,7 +46,7 @@ export default function HomePage() {
             href="/history"
             className="bg-blue-600 hover:bg-blue-700 text-white text-lg font-semibold py-3 px-10 rounded-lg shadow-lg transition"
           >
-            Read Park History →
+            Read about the Park →
           </Link>
         </div>
       </div>

@@ -36,6 +36,17 @@ export default function Navbar() {
             >
               About the Park
             </Link>
+            <Link
+              href="/challenges"
+              className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                isActive('/challenges')
+                  ? 'text-blue-600 font-semibold'
+                  : 'text-gray-700 hover:text-blue-600'
+              }`}
+            >
+              Ongoing Challenges
+            </Link>
+
 
             {/* NEW Survey Page */}
             <Link
